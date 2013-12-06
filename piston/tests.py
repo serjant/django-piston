@@ -1,10 +1,13 @@
 # Django imports
 from django.core import mail
-from django.contrib.auth.models import User
 from django.conf import settings
 from django.template import loader, TemplateDoesNotExist
 from django.http import HttpRequest, HttpResponse
 from django.utils import simplejson
+
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 # Piston imports
 from test import TestCase

@@ -3,12 +3,15 @@ import urllib, time, urlparse
 # Django imports
 from django.db.models.signals import post_save, post_delete
 from django.db import models
-from django.contrib.auth.models import User
 from django.core.mail import send_mail, mail_admins
 
 # Piston imports
 from managers import TokenManager, ConsumerManager, ResourceManager
 from signals import consumer_post_save, consumer_post_delete
+
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 KEY_SIZE = 18
 SECRET_SIZE = 32

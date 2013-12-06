@@ -2,7 +2,7 @@ import binascii
 
 import oauth
 from django.http import HttpResponse, HttpResponseRedirect
-from django.contrib.auth.models import User, AnonymousUser
+from django.contrib.auth.models import AnonymousUser
 from django.contrib.auth.decorators import login_required
 from django.template import loader
 from django.contrib.auth import authenticate
@@ -13,6 +13,10 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 
 from piston import forms
+
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 class NoAuthentication(object):
     """
